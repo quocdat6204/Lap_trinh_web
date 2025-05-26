@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD Badminton - Nền tảng đặt sân cầu lông</title>
+    <link rel = "icon" href = "../../chung/1.jpg" type = "image/x-icon" style="mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="../../chung/search1.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text" style="font-family:Time New Romans;">QD Badminton</div>
+                <img src="../../chung/1.jpg" alt="QD Badminton Logo">               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../trangchu/index.html">Trang chủ</a></li>
+                    <li><a href="../santap/index.html">Sân tập</a></li>
+                    <li><a href="../vot/index.html">Thuê vợt</a></li>
+                    <li><a href="../nguoidung/index.html">Người dùng</a></li>
+                </ul>
+            </nav> 
+            <div class="search-login">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm">
+                <div style="display: flex; align-items: center;">
+                    <a href="../thongbao/index.html" style="text-decoration: none; color: #333; margin-right: 15px; display: flex; align-items: center;">
+                        <div style="position: relative; display: inline-block;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFD700" viewBox="0 0 16 16">
+                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                            </svg>
+                            <span style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background-color: red; border-radius: 50%;"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown">
+                        <button id="avatarButton" class="ava" style="width: 36px; height: 36px; background-color: #d94a7a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: none; cursor: pointer;">
+                            Admin
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <a href="../doimkhau/index.html" class="dropdown-item">Đổi mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../dangnhap/index.html" class="dropdown-item">Đăng xuất</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="court-image">
+                    <img id="courtImage" src="../../chung/3.jpg" alt="Đang tải...">
+                </div>
+                
+                <div class="booking-details">
+                    <div class="court-header">
+                        <h2 class="court-name" id="courtName">Đang tải...</h2>
+                        <div id="editBtnGroup">
+                            <button id="editBtn" class="edit-btn">Chỉnh sửa</button>
+                            <button id="saveBtn" class="edit-btn" style="display:none;background:#27ae60;">Lưu</button>
+                            <button id="cancelBtn" class="edit-btn" style="display:none;background:#888;">Hủy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="court-info">
+                        <p class="court-address" id="courtAddress">Đang tải...</p>
+                        <p class="court-hours" id="courtHours">Đang tải...</p>
+                        <p class="court-price" id="courtPrice">Đang tải...</p>
+                        <p class="court-type" id="courtType">Đang tải...</p>
+                    </div>
+                    
+                    <div class="booking-options">
+                        <div class="option-group">
+                            <label>Ngày:</label>
+                            <div id="paginationWrapper" style="display:flex;align-items:center;gap:10px;width:100%;justify-content:flex-start;flex-wrap:wrap;">
+                                <div class="option-buttons date-buttons" id="dateButtons">
+                                    <span>Đang tải...</span>
+                                </div>
+                                <div class="pagination-controls" style="display:flex;align-items:center;gap:5px;">
+                                    <button id="prevPageBtn" class="edit-btn pagination-btn">Trước</button>
+                                    <span id="pageInfo" style="font-size:0.95rem;">Trang 1</span>
+                                    <button id="nextPageBtn" class="edit-btn pagination-btn">Sau</button>
+                                </div>
+                                <button id="addDayBtn" class="edit-btn" style="background:#27ae60;padding:6px 14px;font-size:0.95rem;">Tạo ngày mới</button>
+                                <input type="date" id="newDayInput" style="display:none;margin-left:8px;" />
+                                <button id="saveDayBtn" class="edit-btn" style="display:none;background:#27ae60;padding:6px 14px;font-size:0.95rem;">Lưu ngày</button>
+                                <button id="cancelDayBtn" class="edit-btn" style="display:none;background:#888;padding:6px 14px;font-size:0.95rem;">Hủy</button>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Giờ:</label>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <div class="option-buttons time-buttons" id="timeButtons">
+                                    <span>Đang tải...</span>
+                                </div>
+                                <button id="addTimeBtn" class="edit-btn" style="background:#27ae60;padding:6px 14px;font-size:0.95rem;">Tạo giờ mới</button>
+                                <input type="time" id="newStartTimeInput" step="1800" style="display:none;margin-left:8px;" />
+                                <span id="toLabel" style="display:none;">-</span>
+                                <input type="time" id="newEndTimeInput" step="1800" style="display:none;" />
+                                <button id="saveTimeBtn" class="edit-btn" style="display:none;background:#27ae60;padding:6px 14px;font-size:0.95rem;">Lưu giờ</button>
+                                <button id="cancelTimeBtn" class="edit-btn" style="display:none;background:#888;padding:6px 14px;font-size:0.95rem;">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Booking Records Table -->
+            <div id="bookingRecordsContainer" class="booking-records-container" style="display: none;">
+                <table class="booking-records-table">
+                    <thead>
+                        <tr>
+                            <th>Khách hàng</th>
+                            <th>Đăng ký lúc</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingRecordsBody">
+                        <!-- Records will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>    
+    
+    <div style="margin-bottom: 20px; padding: 0px; background-color: #ffffff; margin-top: 200px;">
+        <h1 style="color: #000; font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 40px;">QD Badminton</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>QD Badminton</h2>
+                <div class="footer-logo-box">
+                    <img src="../../chung/1.jpg" alt="QD Badminton Logo">
+                    <p>Thể thao thay đổi cuộc sống</p>
+                </div>
+                <p class="footer-phone">+84839957387</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Who we help</a></li>
+                        <li><a href="#">Get involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="copyright">© 2022 Brand, Inc</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="#" class="help-center-btn">Help Center</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

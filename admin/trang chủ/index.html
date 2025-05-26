@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD Badminton - Nền tảng đặt sân cầu lông</title>
+    <link rel = "icon" href = "C:\Users\HP\Desktop\web\chung\1.jpg" type = "image/x-icon" style="mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="C:\Users\HP\Desktop\web\admin\trang chủ\style.css"> 
+    <style>       
+        .login-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8); /* Tạo viền sáng */
+        }
+        
+        .s1 {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .s1-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .s1-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+        
+        .s1-text h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+        }
+        
+        .s1-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .feature .check {
+            color: green;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .s1-image {
+            flex: 1;
+        }
+        
+        .s1-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            background-color: #d9534f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .cta-button:hover {
+            background-color: #c9302c;
+        }
+        
+        .pricing {
+            padding: 40px 0;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .courts {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .court {
+            flex: 0 0 48%;
+        }
+        
+        .court img {
+            height: 600px;
+            width: 100%;
+            border-radius: 5px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .court-info h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .court-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .court-info li {
+            font-size: 14px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .racket-rental {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .racket-rental h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        
+        .rental-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .rental-features {
+            flex: 0 0 55%;
+        }
+        
+        .rental-feature {
+            margin-bottom: 25px;
+        }
+        
+        .rental-feature h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #5468FF;
+            margin-bottom: 10px;
+        }
+        
+        .rental-feature p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .rental-image {
+            flex: 0 0 40%;
+        }
+        
+        .rental-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        
+        .rental-button {
+            margin-top: 30px;
+        }
+        
+        .promo-section {
+            padding: 40px 0;
+            background-color: #d2d5f3; /* Màu nền nhẹ nhàng */
+        }
+        
+        .promo-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .promo-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+        
+        .promo-text h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #000;
+        }
+        
+        .promo-image {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .promo-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text" style="font-family:Time New Romans;">QD Badminton</div>
+                <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\trang chủ\index.html">Trang chủ</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\sân tập\index.html">Sân tập</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\vợt\index.html">Thuê vợt</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\người dùng\index.html">Người dùng</a></li>
+                </ul>
+            </nav> 
+            <div class="search-login">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm">
+                <button class="login-btn">Đăng nhập</button>
+            </div>
+        </div>
+    </header>
+    
+    <section class="s1">
+        <div class="container s1-content">
+            <div class="s1-text">
+                <h1>Chào mừng bạn đến với QD Badminton - nền tảng đặt sân cầu lông tiện lợi, nhanh chóng và uy tín!</h1>
+                <p>Bạn đang tìm kiếm một sân cầu lông chất lượng để luyện tập hoặc thi đấu? Với QD Badminton, bạn có thể dễ dàng:</p>
+                
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <p>Tìm kiếm sân phù hợp theo khu vực mong muốn.</p>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <p>Xem thông tin chi tiết về giá cả, vị trí và tiện ích từng sân.</p>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <p>Đặt sân trực tuyến nhanh chóng, chỉ với vài thao tác đơn giản.</p>
+                </div>
+                
+                <p>Chúng tôi hợp tác với nhiều sân cầu lông trên toàn quốc, mang đến cho bạn trải nghiệm tốt nhất với hệ thống sân đạt chuẩn, dịch vụ chuyên nghiệp và giá cả hợp lý.</p>
+                
+                <div class="contact-info">
+                    <p>QD Badminton!</p>
+                    <p>📞 Liên hệ: 0839957387</p>
+                    <p>🌐 Website: qdbadminton.com.vn</p>
+                </div>
+            </div>
+            <div class="s1-image">
+                <img src="C:\Users\HP\Desktop\web\chung\2.webp" alt="Sân cầu lông chất lượng cao">
+            </div>
+        </div>
+    </section>
+    
+    <a href="#" class="cta-button">Đặt sân ngay</a>
+    
+    <section class="pricing container">
+        <h2>Giá cả hợp lí</h2>
+        <div class="courts">
+            <div class="court">
+                <img src="C:\Users\HP\Desktop\web\chung\3.jpg" alt="Sân cầu lông Đức Anh">
+                <div class="court-info">
+                    <h3>Sân cầu lông Đức Anh</h3>
+                    <ul>
+                        <li>Địa chỉ: 01 Nguyễn Văn Ngọc, phường Cống Vị, quận Ba Đình, Hà Nội</li>
+                        <li>Giờ mở cửa: 18:00 - 22:00 các ngày trong tuần</li>
+                        <li>Giá thuê sân: 80.000 - 100.000đ/h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="court">
+                <img src="C:\Users\HP\Desktop\web\chung\5.jpg" alt="Sân cầu lông Hồng Hà">
+                <div class="court-info">
+                    <h3>Sân CLB Cầu lông Hồng Hà</h3>
+                    <ul>
+                        <li>Địa chỉ: Phố Trần Nhân Tông, phường Lê Đại Hành, Hai Bà Trưng</li>
+                        <li>Giờ mở cửa: 05:30 - 22:30</li>
+                        <li>Giá cho thuê: 70.000 - 130.000đ/h</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s1">
+        <div class="racket-rental container">
+            <h2>Cho thuê vợt theo giờ</h2>
+            <div class="rental-content">
+                <div class="rental-features">
+                    <div class="rental-feature">
+                        <h3>1. Dịch vụ linh hoạt, tiện lợi</h3>
+                        <p>Thuê vợt theo giờ giúp bạn dễ dàng trải nghiệm cầu lông mà không cần mua vợt riêng.</p>
+                        <p>Phù hợp cho người mới chơi, khách du lịch hoặc những ai muốn thử nhiều loại vợt khác nhau.</p>
+                    </div>
+        
+                    <div class="rental-feature">
+                        <h3>2. Nhiều loại vợt chất lượng</h3>
+                        <p>Cung cấp đa dạng vợt từ vợt phổ thông đến vợt cao cấp của các thương hiệu như Yonex, Lining, Victor...</p>
+                        <p>Được bảo trì, căng lưới chuẩn để đảm bảo hiệu suất tốt nhất.</p>
+                    </div>
+        
+                    <div class="rental-feature">
+                        <h3>3. Giá cả hợp lý, đặt thuê dễ dàng</h3>
+                        <p>Thuê vợt với mức giá hợp lý, tính theo giờ.</p>
+                        <p>Đặt thuê nhanh chóng ngay trên QĐ Badminton, nhận vợt ngay tại sân.</p>
+                    </div>
+      
+                    <a href="#" class="cta-button">Thuê ngay</a>
+                   
+                </div>
+                <div class="rental-image">
+                    <img src="C:\Users\HP\Desktop\web\chung\7.jpg" alt="Vợt cầu lông và cầu">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section">
+        <div class="container promo-content">
+            <div class="promo-text">
+                <h2>Thuê lần đầu giảm 50% 🎉</h2>
+                <a href="#" class="cta-button">Khám phá ngay</a>
+            </div>
+            <div class="promo-image">
+                <img src="C:\Users\HP\Desktop\web\chung\8.webp" alt="Khuyến mãi giảm 50% cho lần thuê sân đầu tiên">
+            </div>
+        </div>
+    </section>
+    
+    <div style="margin-bottom: 20px; padding: 0px; background-color: #ffffff; margin-top: 200px;">
+        <h1 style="color: #000; font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 40px;">QD Badminton</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>QD Badminton</h2>
+                <div class="footer-logo-box">
+                    <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">
+                    <p>Thể thao thay đổi cuộc sống</p>
+                </div>
+                <p class="footer-phone">+84839957387</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Who we help</a></li>
+                        <li><a href="#">Get involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="copyright">© 2022 Brand, Inc</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="#" class="help-center-btn">Help Center</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="C:\Users\HP\Desktop\web\admin\trang chủ\script.js"></script>
+</body>
+</html>

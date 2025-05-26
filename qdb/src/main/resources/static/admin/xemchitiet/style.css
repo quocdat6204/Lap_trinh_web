@@ -1,0 +1,703 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #a7e8bd;
+    padding: 15px 0;
+    border-bottom: 2px solid #5bc0de;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    text-align: center;
+}
+
+.logo img {
+    height: 60px;
+    width: 65px;
+    mix-blend-mode: multiply;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center; 
+}
+
+nav ul li {
+    margin: 0 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: rgb(240, 122, 58);
+    border-radius: 5px;
+}
+
+.search-login {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 250px;
+    margin-right: 15px;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Mặc định là ẩn */
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #2980b9;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 0;
+}
+
+/* Chỉ hiển thị dropdown khi có class 'show' */
+.dropdown-content.show {
+    display: block;
+}
+
+.footer {
+    background-color: #2ebc3e;
+    color: white;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    flex: 0 0 25%;
+    
+}
+
+.footer-logo h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', serif;
+}
+
+.footer-logo-box {
+    margin-bottom: 15px;
+}
+
+.footer-logo-box img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    mix-blend-mode: multiply;
+    margin-left: 50px;
+    display: block;
+}
+
+.footer-logo-box p {
+    font-size: 14px;
+}
+
+.footer-phone {
+    font-size: 14px;
+}
+
+.footer-links {
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.footer-right {
+    flex: 0 0 20%;
+    text-align: right;
+}
+
+.help-center-btn {
+    display: inline-block;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.help-center-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 18px;
+}
+
+/* Thêm Font Awesome nếu bạn muốn sử dụng icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Phần CSS cho section đặt sân */
+.booking-section {
+    background: #f7fafc;
+    padding: 40px 0 60px 0;
+    min-height: 80vh;
+}
+
+.booking-container {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 32px 32px 32px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.court-image {
+    flex: 1 1 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.court-image img {
+    width: 100%;
+    max-width: 400px;
+    max-height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    border: 3px solid #4CAF50;
+}
+
+.booking-details {
+    flex: 1 1 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.court-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.court-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    margin: 0;
+}
+.edit-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.edit-btn:hover {
+    background: #c0392b;
+}
+.court-info {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+.court-info p {
+    margin: 4px 0;
+}
+.court-price {
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-right: 18px;
+}
+.court-type {
+    font-style: italic;
+    color: #888;
+    display: inline-block;
+}
+.court-hours {
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.booking-options {
+    background: #f0f8f0;
+    border-radius: 12px;
+    padding: 18px 18px 10px 18px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.option-group {
+    margin-bottom: 16px;
+}
+.option-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+.option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+.date-btn, .time-btn {
+    padding: 8px 18px;
+    border: 1.5px solid #4CAF50;
+    background: #fff;
+    color: #222;
+    border-radius: 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    outline: none;
+    min-width: 70px;
+    box-shadow: 0 1px 4px rgba(76,175,80,0.04);
+}
+.date-btn:hover, .time-btn:hover {
+    background: #e8f5e9;
+    border-color: #388e3c;
+}
+.date-btn.selected, .time-btn.selected {
+    background: #4CAF50;
+    color: #fff;
+    border-color: #388e3c;
+}
+.time-btn.booked {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .booking-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+    }
+    .court-image img {
+        max-width: 100%;
+        margin: 0 auto 18px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .booking-section {
+        padding: 10px 0 30px 0;
+    }
+    .booking-container {
+        padding: 8px;
+        gap: 18px;
+    }
+    .court-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .court-name {
+        font-size: 1.2rem;
+    }
+    .edit-btn {
+        padding: 6px 14px;
+        font-size: 0.95rem;
+    }
+    .option-buttons {
+        gap: 6px;
+    }
+    .date-btn, .time-btn {
+        padding: 7px 10px;
+        font-size: 0.95rem;
+        min-width: 54px;
+    }
+}
+
+/* Styles cho bảng booking records */
+.booking-records-container {
+    margin-top: 30px;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.booking-records-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+}
+
+.booking-records-table th,
+.booking-records-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.booking-records-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #333;
+}
+
+.booking-records-table tbody tr {
+    background-color: #f5f5f5;
+}
+
+.booking-records-table tbody tr:nth-child(odd) {
+    background-color: #f8c6c6;  /* Màu hồng nhạt cho hàng lẻ */
+}
+
+/* Style cho nút xóa trong bảng */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    transition: color 0.3s;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.delete-btn:hover {
+    color: #d32f2f;
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+/* Thêm animation khi hiển thị bảng booking */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-records-container {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive cho bảng */
+@media (max-width: 768px) {
+    .booking-records-table th,
+    .booking-records-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .delete-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .booking-records-table th,
+    .booking-records-table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+/* PHÂN TRANG NGÀY */
+#paginationWrapper {
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.pagination-btn {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+}
+.pagination-btn:hover {
+    background: #217dbb;
+    box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+}
+#pageInfo {
+    min-width: 60px;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+}
+@media (max-width: 600px) {
+    #paginationWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .pagination-controls {
+        gap: 3px;
+    }
+    .pagination-btn {
+        padding: 5px 10px;
+        font-size: 0.95rem;
+    }
+}
+
+.delete-day-btn, .delete-time-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 16px;
+    margin-left: 2px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.delete-day-btn:hover, .delete-time-btn:hover {
+    background: #fdeaea;
+    color: #c0392b;
+}
+
+/* Hiệu ứng hover chỉ hiện nút xóa khi trỏ chuột vào ngày/giờ */
+.date-btn + .delete-day-btn,
+.time-btn + .delete-time-btn {
+    display: none;
+}
+div:hover > .delete-day-btn,
+div:hover > .delete-time-btn {
+    display: flex;
+}
+
+.delete-day-btn-x, .delete-time-btn-x {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #fff;
+    border: 1.5px solid #e74c3c;
+    color: #e74c3c;
+    font-size: 16px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.delete-day-btn-x:hover, .delete-time-btn-x:hover {
+    background: #fdeaea;
+    color: #c0392b;
+    border-color: #c0392b;
+}
+/* Chỉ hiện nút X khi hover vào wrapper */
+div:hover > .delete-day-btn-x,
+div:hover > .delete-time-btn-x {
+    display: flex;
+}
+
+/* Thiết kế lại phần giờ */
+#timeButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+    #timeButtons {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+#timeButtons > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.time-btn {
+    width: 100%;
+    background: #fff;
+    border: 1.5px solid #4CAF50;
+    color: #222;
+    border-radius: 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+    outline: none;
+    min-width: 90px;
+    box-shadow: 0 1px 6px rgba(76,175,80,0.08);
+    padding: 10px 18px;
+    text-align: center;
+    margin: 0;
+}
+.time-btn:hover {
+    background: #e8f5e9;
+    border-color: #388e3c;
+    box-shadow: 0 4px 16px rgba(76,175,80,0.13);
+}
+.time-btn.selected {
+    background: #4CAF50;
+    color: #fff;
+    border-color: #388e3c;
+}
+.time-btn.booked {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.delete-time-btn-x {
+    top: -7px !important;
+    right: -7px !important;
+    font-size: 15px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+/* Nút tạo giờ mới căn phải */
+#addTimeBtn {
+    float: right;
+    margin-left: auto;
+    margin-top: 8px;
+    display: block;
+}
+
+.booking-info-under-slot {
+    display: none;
+    font-size: 0.97em;
+    color: #444;
+    background: #f9f9f9;
+    border-radius: 7px;
+    margin-top: 4px;
+    padding: 6px 10px 6px 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(76,175,80,0.04);
+    text-align: left;
+    min-width: 120px;
+    max-width: 220px;
+    word-break: break-word;
+}
+.time-btn.selected + .booking-info-under-slot {
+    display: block;
+}

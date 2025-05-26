@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD Badminton - Nền tảng đặt sân cầu lông</title>
+    <link rel = "icon" href = "C:\Users\HP\Desktop\web\chung\1.jpg" type = "image/x-icon" style="mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="C:\Users\HP\Desktop\web\admin\sân tập\style.css"> 
+    <style>       
+        /* Phần CSS chung cho tất cả các section */
+        .courts-section {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+            margin-bottom: 30px;
+        }
+
+        .courts-section:nth-child(even) {
+            background-color: #f0f8f0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #27ae60;
+        }
+
+        .courts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: flex-start;
+        }
+
+        .court-card {
+            flex-basis: calc(33.333% - 20px);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .court-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .court-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .court-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .court-card:hover .court-image img {
+            transform: scale(1.05);
+        }
+
+        .court-info {
+            padding: 20px;
+        }
+
+        .court-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .court-info ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .icon {
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        .court-info ul li strong {
+            color: #333;
+            margin-right: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .court-card {
+                flex-basis: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .court-card {
+                flex-basis: 100%;
+            }
+            
+            .courts-container {
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text" style="font-family:Time New Romans;">QD Badminton</div>
+                <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\trang chủ\index.html">Trang chủ</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\sân tập\index.html">Sân tập</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\vợt\index.html">Thuê vợt</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\người dùng\index.html">Người dùng</a></li>
+                </ul>
+            </nav> 
+            <div class="search-login">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm">
+                <div style="display: flex; align-items: center;">
+                    <a href="C:\Users\HP\Desktop\web\admin\thông báo\index.html" style="text-decoration: none; color: #333; margin-right: 15px; display: flex; align-items: center;">
+                        <div style="position: relative; display: inline-block;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFD700" viewBox="0 0 16 16">
+                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                            </svg>
+                            <span style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background-color: red; border-radius: 50%;"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown">
+                        <button id="avatarButton" class="ava" style="width: 36px; height: 36px; background-color: #d94a7a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: none; cursor: pointer;">
+                            D
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <a href="C:\Users\HP\Desktop\web\admin\đổi mkhau\index.html" class="dropdown-item">Đổi mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="C:\Users\HP\Desktop\web\admin\trang chủ\index.html" class="dropdown-item">Đăng xuất</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <a href="C:\Users\HP\Desktop\web\admin\chỉnh sửa\index.html" style="text-decoration: none; color: #333; margin-left: 1300px; margin-right: auto; display: flex; align-items: center;">
+        <div style="position: relative; display: inline-block;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.8">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+        </div>
+    </a>    
+
+    <section class="courts-section">
+        <div class="container">
+            <h2 class="section-title">Sân nhà thi đấu</h2>
+            
+            <div class="courts-container">
+                <!-- Sân 1 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\10.jpg" alt="Sân cầu lông nhà thi đấu 1">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> 115 Quán Thánh, Quận Ba Đình, Hà Nội</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 05:00 - 22:00</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 80.000 - 100.000đ/h</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sân 2 -->
+                <div class="court-card" id="court-nguyenvanngoc">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\3.jpg" alt="Sân cầu lông nhà thi đấu 2">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> 01 Nguyễn Văn Ngọc, phường Cống Vị, quận Ba Đình, Hà Nội</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 18:00 - 22:00 các ngày trong tuần</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 80.000 - 100.000đ/h</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sân 3 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\4.jpg" alt="Sân cầu lông nhà thi đấu 3">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> 120 Đốc Ngữ, Ba Đình, Hà Nội</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 18:00 - 22:00</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 100.000 - 120.000đ/h</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="courts-section">
+        <div class="container">
+            <h2 class="section-title">Sân ngoài trời</h2>
+            
+            <div class="courts-container">
+                <!-- Sân ngoài trời 1 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\11.jpg" alt="Sân cầu lông ngoài trời 1">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> Thanh Xuân</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 06:00 - 22:00 hằng ngày.</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 50.000 - 70.000 VNĐ/giờ (tùy khung giờ)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sân ngoài trời 2 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\12.webp" alt="Sân cầu lông ngoài trời 2">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> Hà Đông</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 07:00 - 23:00 hằng ngày.</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 50.000 - 70.000 VNĐ/giờ (tùy khung giờ).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="courts-section">
+        <div class="container">
+            <h2 class="section-title">Sân trường học</h2>
+            
+            <div class="courts-container">
+                <!-- Sân trường học 1 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\12.jpg" alt="Sân cầu lông trường học 1">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> Đại học sư phạm Hà Nội</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 06:00 - 22:00 hằng ngày.</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 150.000 VNĐ/giờ (sân tiêu chuẩn thi đấu, sàn gỗ cao cấp, ánh sáng chuẩn).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sân trường học 2 -->
+                <div class="court-card">
+                    <div class="court-image">
+                        <img src="C:\Users\HP\Desktop\web\chung\13.webp" alt="Sân cầu lông trường học 2">
+                    </div>
+                    <div class="court-info">
+                        <ul>
+                            <li><span class="icon">📍</span> <strong>Địa chỉ:</strong> Trường thcs Phan Đình Giót</li>
+                            <li><span class="icon">🕖</span> <strong>Giờ mở cửa:</strong> 07:00 - 23:00 hằng ngày.</li>
+                            <li><span class="icon">💰</span> <strong>Giá thuê sân:</strong> 120.000 VNĐ/giờ (sân tiêu chuẩn tập luyện, mặt sân chất lượng, không gian thoáng).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div style="margin-bottom: 20px; padding: 0px; background-color: #ffffff; margin-top: 200px;">
+        <h1 style="color: #000; font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 40px;">QD Badminton</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>QD Badminton</h2>
+                <div class="footer-logo-box">
+                    <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">
+                    <p>Thể thao thay đổi cuộc sống</p>
+                </div>
+                <p class="footer-phone">+84839957387</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Who we help</a></li>
+                        <li><a href="#">Get involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="copyright">© 2022 Brand, Inc</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="#" class="help-center-btn">Help Center</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="C:\Users\HP\Desktop\web\admin\sân tập\script.js"></script>
+</body>
+</html>

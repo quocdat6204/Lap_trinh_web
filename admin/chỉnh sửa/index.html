@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD Badminton - Nền tảng đặt sân cầu lông</title>
+    <link rel = "icon" href = "C:\Users\HP\Desktop\web\chung\1.jpg" type = "image/x-icon" style="mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="C:\Users\HP\Desktop\web\admin\chỉnh sửa\style.css"> 
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text" style="font-family:Time New Romans;">QD Badminton</div>
+                <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\trang chủ\index.html">Trang chủ</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\sân tập\index.html">Sân tập</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\vợt\index.html">Thuê vợt</a></li>
+                    <li><a href="C:\Users\HP\Desktop\web\admin\người dùng\index.html">Người dùng</a></li>
+                </ul>
+            </nav> 
+            <div class="search-login">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm">
+                <div style="display: flex; align-items: center;">
+                    <a href="C:\Users\HP\Desktop\web\admin\thông báo\index.html" style="text-decoration: none; color: #333; margin-right: 15px; display: flex; align-items: center;">
+                        <div style="position: relative; display: inline-block;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFD700" viewBox="0 0 16 16">
+                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                            </svg>
+                            <span style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background-color: red; border-radius: 50%;"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown">
+                        <button id="avatarButton" class="ava" style="width: 36px; height: 36px; background-color: #d94a7a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: none; cursor: pointer;">
+                            D
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <a href="C:\Users\HP\Desktop\web\admin\đổi mkhau\index.html" class="dropdown-item">Đổi mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="C:\Users\HP\Desktop\web\admin\trang chủ\index.html" class="dropdown-item">Đăng xuất</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="court-management-section">
+        <div class="container">
+            <h1 class="section-title">Quản lí sân tập</h1>
+            
+            <div class="management-container">
+                <!-- Left sidebar - Danh sách sân -->
+                <div class="court-list-sidebar">
+                    <div class="court-category">
+                        <div class="category-header">
+                            <span class="category-name">Sân tập</span>
+                            <button class="add-btn" title="Thêm sân mới">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="court-category">
+                        <div class="category-header">
+                            <span class="category-name">Sân nhà thi đấu</span>
+                            <div class="action-buttons">
+                                <button class="add-btn" title="Thêm sân mới">+</button>
+                                <button class="dropdown-btn" title="Hiển thị danh sách sân">▼</button>
+                            </div>
+                        </div>
+                        <div class="sub-courts">
+                            <div class="sub-court" data-court="san1">
+                                <button class="expand-btn">▶</button>
+                                <span class="court-name">Sân 1</span>
+                            </div>
+                            <div class="sub-court" data-court="san2">
+                                <button class="expand-btn">▶</button>
+                                <span class="court-name">Sân 2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="court-category">
+                        <div class="category-header">
+                            <span class="category-name">Sân ngoài trời</span>
+                            <div class="action-buttons">
+                                <button class="add-btn" title="Thêm sân mới">+</button>
+                                <button class="dropdown-btn" title="Hiển thị danh sách sân">▼</button>
+                            </div>
+                        </div>
+                        <div class="sub-courts" style="display: none;">
+                            <!-- Sân con sẽ được thêm vào đây khi có dữ liệu -->
+                        </div>
+                    </div>
+                    
+                    <div class="court-category">
+                        <div class="category-header">
+                            <span class="category-name">Sân trường học</span>
+                            <div class="action-buttons">
+                                <button class="add-btn" title="Thêm sân mới">+</button>
+                                <button class="dropdown-btn" title="Hiển thị danh sách sân">▼</button>
+                            </div>
+                        </div>
+                        <div class="sub-courts" style="display: none;">
+                            <!-- Sân con sẽ được thêm vào đây khi có dữ liệu -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right content - Thông tin sân -->
+                <div class="court-details">
+                    <h2 class="details-title">Thông tin</h2>
+                    
+                    <form id="courtForm">
+                        <div class="form-group">
+                            <label for="courtImage">Hình ảnh:</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="courtImage" class="file-input" accept="image/*">
+                                <label for="courtImage" class="file-upload-label">chọn tệp</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="courtName">Tên:</label>
+                            <input type="text" id="courtName" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="courtAddress">Địa chỉ:</label>
+                            <input type="text" id="courtAddress" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="courtHours">Giờ thuê:</label>
+                            <input type="text" id="courtHours" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="courtPrice">Giá thuê:</label>
+                            <input type="text" id="courtPrice" class="form-control">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" id="saveButton" class="save-btn">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+    <div style="margin-bottom: 20px; padding: 0px; background-color: #ffffff; margin-top: 200px;">
+        <h1 style="color: #000; font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 40px;">QD Badminton</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>QD Badminton</h2>
+                <div class="footer-logo-box">
+                    <img src="C:\Users\HP\Desktop\web\chung\1.jpg" alt="QD Badminton Logo">
+                    <p>Thể thao thay đổi cuộc sống</p>
+                </div>
+                <p class="footer-phone">+84839957387</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Who we help</a></li>
+                        <li><a href="#">Get involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="copyright">© 2022 Brand, Inc</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="#" class="help-center-btn">Help Center</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="C:\Users\HP\Desktop\web\admin\chỉnh sửa\script.js"></script>
+</body>
+</html>

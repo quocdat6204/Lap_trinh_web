@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD Badminton - Nền tảng đặt sân cầu lông</title>
+    <link rel = "icon" href = "../../chung/1.jpg" type = "image/x-icon" style="mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <style>       
+        /* Phần CSS cho section vợt cầu lông */
+        .rackets-section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #27ae60;
+        }
+
+        .rackets-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: flex-start;
+        }
+
+        .racket-card {
+            flex-basis: calc(33.333% - 20px);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .racket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .racket-image {
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .racket-image img {
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .racket-card:hover .racket-image img {
+            transform: scale(1.05);
+        }
+
+        .racket-info {
+            padding: 10px 0;
+        }
+
+        .racket-name {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .racket-price {
+            font-size: 16px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .racket-card {
+                flex-basis: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .racket-card {
+                flex-basis: 100%;
+            }
+            
+            .rackets-container {
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .racket-image {
+                height: 240px;
+            }
+        }
+
+        /* Filter styles */
+        .filter-section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 6px 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+
+        .filter-option:hover {
+            background-color: #e9e9e9;
+        }
+
+        .filter-option.active {
+            background-color: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        .filter-pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Pagination styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pagination-btn {
+            padding: 8px 16px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+
+        .pagination-btn:hover {
+            background-color: #219653;
+        }
+
+        .pagination-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .pagination-numbers {
+            display: flex;
+            gap: 5px;
+        }
+
+        .page-number {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .page-number:hover {
+            background-color: #f0f0f0;
+        }
+
+        .page-number.active {
+            background-color: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        .section-pagination {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text" style="font-family:Time New Romans;">QD Badminton</div>
+                <img src="../../chung/1.jpg" alt="QD Badminton Logo">               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../trangchu/index.html">Trang chủ</a></li>
+                    <li><a href="../santap/index.html">Sân tập</a></li>
+                    <li><a href="../vot/index.html">Thuê vợt</a></li>
+                </ul>
+            </nav> 
+            <div class="search-login">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm">
+                <div style="display: flex; align-items: center;">
+                    <a href="../dathue/index.html" style="text-decoration: none; color: #333; margin-right: 15px; display: flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                        <span style="margin-left: 5px;">Đã thuê</span>
+                    </a>
+                    <div class="dropdown">
+                        <button id="avatarButton" class="ava" style="width: 36px; height: 36px; background-color: #d94a7a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: none; cursor: pointer;">
+                            D
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <a href="../doimkhau/index.html" class="dropdown-item">Đổi mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../trangchu/index.html" class="dropdown-item">Đăng xuất</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="rackets-section">
+        <div class="container">
+            <h2 class="section-title">Yonex</h2>
+            
+            <div class="rackets-container">
+                <!-- Vợt Yonex 1 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Yonex Nanoflare Starbucks">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Yonex Nanoflare Starbucks</h3>
+                        <p class="racket-price">Giá thuê: 30k/h</p>
+                    </div>
+                </div>
+                
+                <!-- Vợt Yonex 2 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Yonex Nanoflare 700 Game">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Yonex Nanoflare 700 Game</h3>
+                        <p class="racket-price">Giá thuê: 50k/h</p>
+                    </div>
+                </div>
+                
+                <!-- Vợt Yonex 3 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Yonex Arcsaber 0 Feel">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Yonex Arcsaber 0 Feel</h3>
+                        <p class="racket-price">Giá thuê: 15k/h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-pagination-container">
+                <!-- Filter section -->
+                <div class="filter-section">
+                    <div class="filter-title">Sắp xếp theo:</div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Giá</div>
+                            <div class="filter-option">Tên</div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Tăng dần</div>
+                            <div class="filter-option">Giảm dần</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section pagination -->
+                <div class="pagination section-pagination">
+                    <button class="pagination-btn" id="yonex-prev-page">Trang trước</button>
+                    <div class="pagination-numbers" id="yonex-pagination-numbers">
+                        <button class="page-number">1</button>
+                        <button class="page-number">2</button>
+                    </div>
+                    <button class="pagination-btn" id="yonex-next-page">Trang sau</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rackets-section">
+        <div class="container">
+            <h2 class="section-title">Victor</h2>
+            
+            <div class="rackets-container">
+                <!-- Vợt Victor 1 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Victor Thruster Ryuga Wukong">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Victor Thruster Ryuga Wukong</h3>
+                        <p class="racket-price">Giá thuê: 75k/h</p>
+                    </div>
+                </div>
+                
+                <!-- Vợt Victor 2 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Victor DK JH 2025">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Victor DK JH 2025</h3>
+                        <p class="racket-price">Giá thuê: 40k/h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-pagination-container">
+                <!-- Filter section -->
+                <div class="filter-section">
+                    <div class="filter-title">Sắp xếp theo:</div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Giá</div>
+                            <div class="filter-option">Tên</div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Tăng dần</div>
+                            <div class="filter-option">Giảm dần</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section pagination -->
+                <div class="pagination section-pagination">
+                    <button class="pagination-btn" id="victor-prev-page">Trang trước</button>
+                    <div class="pagination-numbers" id="victor-pagination-numbers">
+                        <button class="page-number">1</button>
+                    </div>
+                    <button class="pagination-btn" id="victor-next-page">Trang sau</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rackets-section">
+        <div class="container">
+            <h2 class="section-title">Lining</h2>
+            
+            <div class="rackets-container">
+                <!-- Vợt Lining 1 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Lining Airforce 10">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Lining Airforce 10</h3>
+                        <p class="racket-price">Giá thuê: 40k/h</p>
+                    </div>
+                </div>
+                
+                <!-- Vợt Lining 2 -->
+                <div class="racket-card">
+                    <div class="racket-image">
+                        <img src="../../chung/18.webp" alt="Vợt Cầu Lông Lining Aeronaut 7000B">
+                    </div>
+                    <div class="racket-info">
+                        <h3 class="racket-name">Vợt Cầu Lông Lining Aeronaut 7000B</h3>
+                        <p class="racket-price">Giá thuê: 65k/h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-pagination-container">
+                <!-- Filter section -->
+                <div class="filter-section">
+                    <div class="filter-title">Sắp xếp theo:</div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Giá</div>
+                            <div class="filter-option">Tên</div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-options">
+                            <div class="filter-option">Tăng dần</div>
+                            <div class="filter-option">Giảm dần</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section pagination -->
+                <div class="pagination section-pagination">
+                    <button class="pagination-btn" id="lining-prev-page">Trang trước</button>
+                    <div class="pagination-numbers" id="lining-pagination-numbers">
+                        <button class="page-number">1</button>
+                    </div>
+                    <button class="pagination-btn" id="lining-next-page">Trang sau</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main pagination for all rackets -->
+    <div class="container">
+        <div class="pagination main-pagination">
+            <button class="pagination-btn" id="main-prev-page">Trang trước</button>
+            <div class="pagination-numbers" id="main-pagination-numbers">
+                <button class="page-number">1</button>
+                <button class="page-number">2</button>
+                <button class="page-number">3</button>
+            </div>
+            <button class="pagination-btn" id="main-next-page">Trang sau</button>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px; padding: 0px; background-color: #ffffff; margin-top: 200px;">
+        <h1 style="color: #000; font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 40px;">QD Badminton</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>QD Badminton</h2>
+                <div class="footer-logo-box">
+                    <img src="../../chung/1.jpg" alt="QD Badminton Logo">
+                    <p>Thể thao thay đổi cuộc sống</p>
+                </div>
+                <p class="footer-phone">+84839957387</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Who we help</a></li>
+                        <li><a href="#">Get involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="copyright">© 2022 Brand, Inc</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="#" class="help-center-btn">Help Center</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
